@@ -1,0 +1,269 @@
+@font-face {
+  font-family: "Aliens";
+  src: url(/fonts/Aliens.ttf?d4f498023801dd6ec85ab70468df2c03) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hurufo";
+  src: url(/fonts/Hurufo-Numero.ttf?6735f1afcc7634c40e1388b6a0edfaec) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.encabezado-border {
+  border: 3px solid black;
+  text-align: center;
+  align-items: center !important;
+  margin: auto;
+  width: 200px;
+}
+
+.item-categoria {
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.item-categoria img {
+  width: 100px;
+}
+
+.item-categoria a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-categoria:hover {
+  opacity: 1;
+}
+
+.item-categoria:nth-child(2n) {
+  margin-top: 140px;
+}
+
+.encabezado-border-min {
+  border: 2px solid black;
+  color: black;
+  width: 200px;
+  line-height: 40px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.encabezado-border-min p {
+  margin-bottom: 0px !important;
+}
+
+.encabezado-border-min:hover {
+  border-color: black;
+  color: black;
+}
+
+.item-producto {
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.item-producto img {
+  width: 200px;
+}
+
+.item-producto a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-producto:hover {
+  opacity: 1;
+}
+
+.item-producto p {
+  color: black !important;
+  margin-top: 20px;
+}
+
+.item-producto:nth-child(2n) {
+  margin-top: 140px;
+}
+
+.content-sub-total {
+  margin-top: 4rem;
+}
+
+hr {
+  margin-top: 10px !important;
+  width: 100% !important;
+}
+
+.adicionals {
+  border: 3px solid #d8d8d8;
+  background: #d8d8d80f;
+  text-align: left;
+}
+
+.adicional-row {
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.circle-product {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 2px solid black;
+  margin: auto;
+}
+
+.add-icon {
+  font-size: 14px;
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.encabezado-adicional {
+  border: 2px solid black;
+  color: black;
+  width: 130px;
+  line-height: 40px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+* {
+  font-family: "Aliens";
+}
+
+span {
+  font-size: 1.4rem;
+}
+
+.numero {
+  font-family: "Hurufo";
+}
+
+hr {
+  margin-top: 0px;
+  width: 80%;
+}
+
+.text-plomo {
+  color: #d8d8d8;
+}
+
+@media screen and (max-width: 1200px) {
+  .row {
+    text-align: center;
+  }
+}
+
+.navbar {
+  height: 110px;
+  background: #d8d8d8;
+  line-height: 105px;
+  font-size: 22px;
+}
+
+@media screen and (max-width: 320px) {
+  .navbar {
+    line-height: inherit;
+  }
+}
+
+.navbar .navbar-brand {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 320px) {
+  .navbar .navbar-brand {
+    width: 80px;
+  }
+
+  .navbar .navbar-brand span {
+    display: none;
+  }
+}
+
+.navbar img {
+  width: 90px;
+}
+
+@media screen and (max-width: 320px) {
+  .navbar img {
+    width: 80px;
+  }
+}
+
+.container {
+  min-height: 66.5vh;
+}
+
+.content {
+  background: white;
+  background-image: url(/assets/img/background.png);
+  background-repeat: repeat;
+}
+
+.content-categorias {
+  padding: 30px 0px;
+}
+
+.btn {
+  border-radius: 0px;
+  padding: 5px 25px;
+  outline: none;
+}
+
+.home-content {
+  height: 50vh;
+}
+
+.btn-info {
+  background: white !important;
+  color: black;
+  border-color: black !important;
+}
+
+.btn-info:hover {
+  background: black !important;
+  color: white;
+  border-color: black;
+}
+
+.btn-primary {
+  background: black;
+  border-color: black !important;
+}
+
+.btn-primary:hover {
+  background: white;
+  color: black;
+}
+
+footer {
+  height: 112px;
+  display: block;
+  background: black;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+footer img {
+  margin: 0px 5px;
+  height: 40px;
+}
+
+footer p {
+  margin-top: 10px;
+}
+

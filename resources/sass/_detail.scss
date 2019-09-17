@@ -1,0 +1,48 @@
+.producto {}
+
+.content-sub-total {
+    margin-top: 4rem;
+}
+
+hr {
+    margin-top: 10px!important;
+    width: 100%!important;
+}
+
+.adicionals {
+    border: 3px solid $plomo;
+    background: #d8d8d80f;
+    text-align: left;
+}
+
+.price-content {}
+
+.adicional-row {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.circle-product {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.add-icon {
+    font-size: 14px;
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.encabezado-adicional {
+    border: 2px solid black;
+    color: black;
+    width: 130px;
+    line-height: 40px;
+    margin-top: 10px;
+    text-align: center;
+}
