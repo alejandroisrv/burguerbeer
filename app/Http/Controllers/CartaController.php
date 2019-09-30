@@ -45,8 +45,9 @@ class CartaController extends Controller
     public function ProductoView(Request $request,$cat_slug,$product_slug,$product_id){
 
         $producto = Producto::find($product_id);
+        $producto->load('categoria');
         $adicionales = Adicional::all();
-        $salsas = Salsa::all();
+        $salsas = Salsa::orderBy('nombre','ASC')->get();
         $bebidas = Producto::where('categoria_id',5)->get();
 
         if(!$producto){

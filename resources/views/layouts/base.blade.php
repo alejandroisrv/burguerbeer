@@ -25,10 +25,10 @@
                         <a class="nav-link" href="/carta">Carta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/hamburguesas">Nuestras Guesas</a>
+                        <a class="nav-link" href="/carta/lohamburguesas">Nuestras Guesas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tragos">Tragos</a>
+                        <a class="nav-link" href="/carta/tragos">Tragos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/nosotros">Nuestra historia</a>

@@ -1,8 +1,6 @@
 import Vue from 'vue';
+import store from './store';
 import VueCurrencyFilter from 'vue-currency-filter';
-
-
-
 
 Vue.component('producto', require('./components/ProductoDetails.vue').default);
 Vue.use(VueCurrencyFilter, {
@@ -26,4 +24,5 @@ Vue.mixin({
 
 const app = new Vue({
     el: '#app',
+    store
 });

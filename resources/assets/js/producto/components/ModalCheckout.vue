@@ -21,7 +21,7 @@
       </div>
       <div slot="modal-footer">
         <div class="text-center">
-          <button type="button" class="btn btn-danger" @click="modal = false ">Cancelar</button>
+          <button type="button" class="btn btn-default" @click="modal = false ">Cancelar</button>
           <button type="submit" class="btn btn-primary">Seleccionar</button>
         </div>
       </div>
@@ -45,15 +45,24 @@ export default {
             tipo:'',
             imagenes:[],
             image:'',
-            modal:true,
+            modal:false,
             loading:true,
         }
     },
+    computed:{
+
+        cart:{
+            set(value){
+                this.$store.commit('SET_CART',value);
+            },
+            get(){
+                return this.$store.state.cart;
+            }
+        },
+    },
     components:{ Modal },
     mounted(){
-        this.eventHub.$on('openModal', () => {
-
-        });
+        this.eventHub.$on('openModal', (modal,item) => this.modal = modal);
     },
     methods:{
      
