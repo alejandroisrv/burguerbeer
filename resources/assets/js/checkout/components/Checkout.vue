@@ -93,6 +93,7 @@ export default {
 .main-checkout{
     background:#ffffffe8;
 }
+
 .encabezado-border{
     width:inherit!important;
     text-align:left;

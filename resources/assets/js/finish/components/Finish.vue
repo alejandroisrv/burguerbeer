@@ -1,6 +1,6 @@
 <template>
-    <div class="row justify-content-center main-checkout">
-        <div class="col-lg-11">
+    <div class="row main-checkout">
+        <div class="col-lg-10 text-right">
             <div class="row">
                 <div class="col">
                     <div class="encabezado-border">
@@ -49,12 +49,15 @@
                             <td class="numero"> 21321 </td>
                         </tr>
                         <tr>
-                            <td> TOTAL: </td>
-                            <td class="numero"> 21321 </td>
+                            <td class="resumen-producto-name"> TOTAL: </td>
+                            <td class="numero" style="font-size:1.9rem;"> 21321 </td>
                     </tr>
                 </table> 
                 </div>
             </div>
+        </div>
+        <div class="col-lg-2 p-0 text-right" style="align-self: flex-end;">
+            <button class="btn btn-primary p-0" @click="finish()"> Finalizar compra </button>
         </div>
     </div>
 </template>
@@ -64,7 +67,13 @@ export default {
         return {
             
         }
-    }
+    },
+    methods: {
+        finish() {
+            this.eventHub.$emit("finishModal");
+            window.location.href="/carta";
+        },
+    },
 }    
 </script>
 <style>
@@ -73,9 +82,16 @@ export default {
 }
 
 .total-list{
+    margin-top:20px;
     text-align:right;
+    margin-left: auto;
+    
 }
 
+.total-list td{
+    padding:2px;
+
+}
 
 .list-producto tbody{
     border: 3px solid black;

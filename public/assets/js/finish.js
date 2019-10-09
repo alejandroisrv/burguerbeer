@@ -155,9 +155,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
+  },
+  methods: {
+    finish: function finish() {
+      this.eventHub.$emit("finishModal");
+      window.location.href = "/carta";
+    }
   }
 });
 
@@ -175,7 +184,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.list-producto td{\n    padding:10px 20px;\n}\n.total-list{\n    text-align:right;\n}\n.list-producto tbody{\n    border: 3px solid black;\n    text-align: left;\n    align-items: center !important;\n    margin: auto;\n}\n.main-checkout{\n    background:#ffffffe8;\n}\n.encabezado-border{\n    width:inherit!important;\n    text-align:left;\n    padding:10px 30px;\n}\n.encabezado-border h2{\n    font-size:2rem !important;\n}\n", ""]);
+exports.push([module.i, "\n.list-producto td{\n    padding:10px 20px;\n}\n.total-list{\n    margin-top:20px;\n    text-align:right;\n    margin-left: auto;\n}\n.total-list td{\n    padding:2px;\n}\n.list-producto tbody{\n    border: 3px solid black;\n    text-align: left;\n    align-items: center !important;\n    margin: auto;\n}\n.main-checkout{\n    background:#ffffffe8;\n}\n.encabezado-border{\n    width:inherit!important;\n    text-align:left;\n    padding:10px 30px;\n}\n.encabezado-border h2{\n    font-size:2rem !important;\n}\n", ""]);
 
 // exports
 
@@ -1305,108 +1314,135 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "row main-checkout" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "col-lg-2 p-0 text-right",
+        staticStyle: { "align-self": "flex-end" }
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary p-0",
+            on: {
+              click: function($event) {
+                return _vm.finish()
+              }
+            }
+          },
+          [_vm._v(" Finalizar compra ")]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "row justify-content-center main-checkout" },
-      [
-        _c("div", { staticClass: "col-lg-11" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "encabezado-border" }, [
-                _c("h2", [_vm._v("Checa el pedido: ")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("table", { staticClass: "list-producto" }, [
-                _c("thead", { staticStyle: { "padding-right": "20px" } }, [
-                  _c("tr", [
-                    _c("td", { staticStyle: { width: "80%" } }),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "10%" } }, [
-                      _vm._v(" Cantidad")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticStyle: { width: "10%" } }, [
-                      _vm._v(" Subtotal")
-                    ])
-                  ])
+    return _c("div", { staticClass: "col-lg-10 text-right" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "encabezado-border" }, [
+            _c("h2", [_vm._v("Checa el pedido: ")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("table", { staticClass: "list-producto" }, [
+            _c("thead", { staticStyle: { "padding-right": "20px" } }, [
+              _c("tr", [
+                _c("td", { staticStyle: { width: "80%" } }),
+                _vm._v(" "),
+                _c("td", { staticStyle: { width: "10%" } }, [
+                  _vm._v(" Cantidad")
                 ]),
                 _vm._v(" "),
-                _c("tbody", [
-                  _c("tr", [
-                    _c("td", { staticClass: "resumen-producto-name" }, [
-                      _vm._v(" Hamburguesa")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "numero text-center" }, [
-                      _vm._v(" 2 ")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "numero text-center" }, [
-                      _vm._v(" S/. 1232 ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", { staticClass: "resumen-producto-name" }, [
-                      _vm._v(" Hamburguesa")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "numero text-center" }, [
-                      _vm._v(" 2 ")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "numero text-center" }, [
-                      _vm._v(" S/. 1232 ")
-                    ])
-                  ])
+                _c("td", { staticStyle: { width: "10%" } }, [
+                  _vm._v(" Subtotal")
                 ])
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row justify-content-end" }, [
-            _c("div", { staticClass: "col-lg-12 text-right" }, [
-              _c("table", { staticClass: "total-list" }, [
-                _c("tr", [
-                  _c("td", [_vm._v(" Sub-Total: ")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("td", { staticClass: "resumen-producto-name" }, [
+                  _vm._v(" Hamburguesa")
                 ]),
                 _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v(" Envio: ")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+                _c("td", { staticClass: "numero text-center" }, [
+                  _vm._v(" 2 ")
                 ]),
                 _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v(" IGV: ")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+                _c("td", { staticClass: "numero text-center" }, [
+                  _vm._v(" S/. 1232 ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { staticClass: "resumen-producto-name" }, [
+                  _vm._v(" Hamburguesa")
                 ]),
                 _vm._v(" "),
-                _c("tr", [
-                  _c("td", [_vm._v(" TOTAL: ")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+                _c("td", { staticClass: "numero text-center" }, [
+                  _vm._v(" 2 ")
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "numero text-center" }, [
+                  _vm._v(" S/. 1232 ")
                 ])
               ])
             ])
           ])
         ])
-      ]
-    )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row justify-content-end" }, [
+        _c("div", { staticClass: "col-lg-12 text-right" }, [
+          _c("table", { staticClass: "total-list" }, [
+            _c("tr", [
+              _c("td", [_vm._v(" Sub-Total: ")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v(" Envio: ")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", [_vm._v(" IGV: ")]),
+              _vm._v(" "),
+              _c("td", { staticClass: "numero" }, [_vm._v(" 21321 ")])
+            ]),
+            _vm._v(" "),
+            _c("tr", [
+              _c("td", { staticClass: "resumen-producto-name" }, [
+                _vm._v(" TOTAL: ")
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                {
+                  staticClass: "numero",
+                  staticStyle: { "font-size": "1.9rem" }
+                },
+                [_vm._v(" 21321 ")]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
