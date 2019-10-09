@@ -22,12 +22,17 @@ $font-number: 'Hurufo';
 @import 'carta';
 @import 'productos';
 @import 'detail';
+@import 'checkout';
 * {
     font-family: $font-principal;
 }
 
 span {
     font-size: 1.4rem;
+}
+
+a {
+    color: inherit !important;
 }
 
 .numero {
@@ -92,6 +97,40 @@ hr {
     border-radius: 0px;
     padding: 5px 25px;
     outline: none;
+    &:focus {
+        outline: none !important;
+        outline-width: 0 !important;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        outline: 0px;
+    }
+}
+
+.form-control {
+    border: 1px solid black;
+    outline: none!important;
+    height: calc(1.25em + 0.65rem + 2px);
+    border-radius: 0px;
+    margin: 5px 0px;
+}
+
+.invalid-form {
+    border: 1px solid #ef161c;
+}
+
+.error-small {
+    color: #ef161c;
+}
+
+input:focus,
+input.form-control:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: 0px;
 }
 
 .home-content {

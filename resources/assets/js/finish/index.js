@@ -3,7 +3,7 @@ import store from '../store';
 import VueCurrencyFilter from 'vue-currency-filter';
 
 
-Vue.component('producto', require('./components/ProductoDetails.vue').default);
+Vue.component('finish', require('./components/Finish.vue').default);
 Vue.use(VueCurrencyFilter, {
     symbol: 'S/.',
     thousandsSeparator: '.',

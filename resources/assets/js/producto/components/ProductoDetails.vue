@@ -98,6 +98,8 @@ export default {
     },
     created(){
         console.log(this.producto);
+        this.item.producto = this.producto;
+        this.cart = local
         
     },
     components:{modal},
@@ -140,7 +142,7 @@ export default {
             this.$forceUpdate();
         },
         openModal(){
-            this.eventHub.$emit('openModal',true,item);
+            this.eventHub.$emit('openModal',true,this.item);
         }
     }
 

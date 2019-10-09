@@ -15,6 +15,12 @@ const store = new Vuex.Store({
             state.cart = value
         },
     },
+    actions: {
+        initStore({ commit, state }) {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            commit("SET_CARS", cart);
+        }
+    }
 })
 
 export default store;

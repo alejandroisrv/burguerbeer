@@ -12,14 +12,10 @@
 */
 
 Route::get('/', 'HomeController@index');
-
 Route::get('/carta', 'CartaController@CartaView');
-
 Route::get('/carta/{cat}', 'CartaController@CategoryView');
-
 Route::get('/carta/{cat}/{product_slug}/{product_id}', 'CartaController@ProductoView');
-
 Route::get('/nosotros', 'HomeController@AboutView');
-
-Route::get('/checkout', 'CheckoutController@index');
-
+Route::get('/checkout', 'CheckoutController@CheckoutView');
+Route::get('/finish', 'CheckoutController@FinishView');
+Route::get('/home', 'HomeController@index')->name('home');

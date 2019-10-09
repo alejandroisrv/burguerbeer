@@ -136,12 +136,50 @@ hr {
   text-align: center;
 }
 
+.resumen-producto-name {
+  font-size: 1.9rem;
+  color: #ef161c;
+}
+
+.resumen-producto-name > span {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 300;
+  vertical-align: middle;
+}
+
+.metodo-pago-card {
+  box-shadow: 0px 0px 1px grey;
+  margin: 15px 20px;
+  text-align: center;
+}
+
+.metodo-pago-card .metodo-pago-header {
+  background: black;
+  padding: 15px 10px;
+  color: white;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.metodo-pago-card .metodo-pago-body {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  height: 100px;
+}
+
 * {
   font-family: "Aliens";
 }
 
 span {
   font-size: 1.4rem;
+}
+
+a {
+  color: inherit !important;
 }
 
 .numero {
@@ -218,6 +256,41 @@ hr {
   border-radius: 0px;
   padding: 5px 25px;
   outline: none;
+}
+
+.btn:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  outline: 0px;
+}
+
+.form-control {
+  border: 1px solid black;
+  outline: none !important;
+  height: calc(1.25em + 0.65rem + 2px);
+  border-radius: 0px;
+  margin: 5px 0px;
+}
+
+.invalid-form {
+  border: 1px solid #ef161c;
+}
+
+.error-small {
+  color: #ef161c;
+}
+
+input:focus,
+input.form-control:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  outline: 0px;
 }
 
 .home-content {

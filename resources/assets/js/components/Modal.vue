@@ -45,7 +45,7 @@ export default {
         margin: 0 auto;
         margin-top: 8%;
         max-height: 70%;
-        height: 60%;
+        height: 43%;
         border:4px solid black;
     }
     .modal-burguer .btn-cerrar{
@@ -82,6 +82,7 @@ export default {
     .modal-burguer .modal-burguer-body {
         padding: 20px;
         height: 84%;
+        padding-bottom:30px;
     }
 
     .square-adicionales{

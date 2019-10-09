@@ -17,6 +17,6 @@ mix.sass('resources/sass/app.scss', 'public/assets/css/app.css')
 
 
 mix.js('resources/assets/js/app.js', 'public/assets/js/app.js');
-
-
+mix.js('resources/assets/js/checkout/index.js', 'public/assets/js/checkout.js');
+mix.js('resources/assets/js/finish/index.js', 'public/assets/js/finish.js');
 mix.js('resources/assets/js/producto/index.js', 'public/assets/js/producto.js');

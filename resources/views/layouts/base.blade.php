@@ -25,7 +25,7 @@
                         <a class="nav-link" href="/carta">Carta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carta/lohamburguesas">Nuestras Guesas</a>
+                        <a class="nav-link" href="/carta/hamburguesas">Nuestras Guesas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carta/tragos">Tragos</a>
@@ -36,8 +36,8 @@
                 </ul>                
             </div>
         </nav>
-        <div class="content">
-            <div class="container">
+        <div class="content" >
+            <div class="container" id="app">
                 @yield('content')
             </div>
         </div>

@@ -2,5 +2,7 @@
     "/assets/js/app.js": "/assets/js/app.js",
     "/assets/css/app.css": "/assets/css/app.css",
     "/assets/css/main.css": "/assets/css/main.css",
+    "/assets/js/checkout.js": "/assets/js/checkout.js",
+    "/assets/js/finish.js": "/assets/js/finish.js",
     "/assets/js/producto.js": "/assets/js/producto.js"
 }
