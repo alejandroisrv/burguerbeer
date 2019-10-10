@@ -169,6 +169,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -202,16 +207,34 @@ __webpack_require__.r(__webpack_exports__);
     this.eventHub.$on('openModal', function (modal, item) {
       _this.modal = modal;
       _this.item = item;
+      console.log(item);
     });
   },
   methods: {
     pedirMas: function pedirMas() {
-      this.cart.push(this.item);
-      localStorage.setItem("cart", JSON.stringify(this.cart));
+      this.saveOrder();
       window.location.href = "/carta";
     },
     pedirYa: function pedirYa() {
+      this.saveOrder();
       window.location.href = "/checkout";
+    },
+    saveOrder: function saveOrder() {
+      var _this2 = this;
+
+      var founded = false;
+      this.cart.forEach(function (element) {
+        if (element.producto.id == _this2.item.producto.id) {
+          founded = true;
+          element.producto.cantidad = element.producto.cantidad + 1;
+        }
+      });
+
+      if (!founded) {
+        this.cart.push(this.item);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(this.cart));
     }
   }
 });
@@ -330,7 +353,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     console.log(this.producto);
     this.item.producto = this.producto;
-    this.cart = local;
+    this.item.producto.cantidad = 1;
   },
   components: {
     modal: _ModalCheckout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -399,7 +422,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.modal-burguer-backdrop {\n       position: fixed;\n       top: 0;\n       left: 0;\n       z-index: 999999;\n       background-color: #2f496e73;\n       width: 100%;\n       height: 100%;\n}\n.modal-burguer-backdrop .modal-burguer {\n       position: relative;\n       background-color: #d9d9d9;\n       width: 50%;\n       margin: 0 auto;\n       margin-top: 8%;\n       max-height: 70%;\n       height: 43%;\n       border:4px solid black;\n}\n.modal-burguer .btn-cerrar{\n       position: absolute;\n       top: -10px;\n       right: -12px;\n       color: #fff;\n       width: 30px;\n       height: 30px;\n       text-align: center;\n       line-height: 30px;\n       transition: 0.5s;\n       cursor: pointer;\n}\n.modal-burguer .btn-cerrar:hover{\n       background: #f52b16;\n}\n.modal-burguer .btn-cerrar i{\n       line-height: 27px;\n}\n.modal-burguer-footer{\n       margin-top: -80px;\n}\n.modal-burguer .modal-burguer-titulo {\n       padding: 15px;\n       font-weight: 550;\n       color: black;\n}\n.modal-burguer .modal-burguer-body {\n       padding: 20px;\n       height: 84%;\n       padding-bottom:30px;\n}\n.square-adicionales{\n       width: 300px;\n       background: #d9d9d9;\n       height: 200px;\n       display: block;\n       position: absolute;\n       top: 16.7%;\n       right: 3.1%;\n       border: 4px solid black;\n}\n\n", ""]);
+exports.push([module.i, "\n.modal-burguer-backdrop {\n       position: fixed;\n       top: 0;\n       left: 0;\n       z-index: 999999;\n       background-color: #2f496e73;\n       width: 100%;\n       height: 100%;\n}\n.modal-burguer-backdrop .modal-burguer {\n       position: relative;\n       background-color: #d9d9d9;\n       width: 50%;\n       margin: 0 auto;\n       margin-top: 8%;\n       max-height: 70%;\n       height: 43%;\n       border:4px solid black;\n}\n.modal-burguer .btn-cerrar{\n       position: absolute;\n       top: -10px;\n       right: -12px;\n       color: #fff;\n       width: 30px;\n       height: 30px;\n       text-align: center;\n       line-height: 30px;\n       transition: 0.5s;\n       cursor: pointer;\n}\n.modal-burguer .btn-cerrar:hover{\n       background: #f52b16;\n}\n.modal-burguer .btn-cerrar i{\n       line-height: 27px;\n}\n.modal-burguer-footer{\n       margin-top: -80px;\n}\n.modal-burguer .modal-burguer-titulo {\n       padding: 15px;\n       font-weight: 550;\n       color: black;\n}\n.modal-burguer .modal-burguer-body {\n       padding: 20px;\n       height: 84%;\n       padding-bottom:30px;\n}\n.square-adicionales{\n       width: 10%;\n       background: #d9d9d9;\n       height: 200px;\n       display: block;\n       position: absolute;\n       top: 16.7%;\n       right: 3.1%;\n       border: 4px solid black;\n       display:none;\n       visibility:hidden;\n}\n\n", ""]);
 
 // exports
 
@@ -1674,10 +1697,33 @@ var render = function() {
           _vm._v(" "),
           _c("div", { attrs: { slot: "modal-body" }, slot: "modal-body" }, [
             _vm.item != ""
-              ? _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col" }),
+              ? _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-6 text-center" }, [
+                    _c("img", {
+                      staticStyle: { width: "100%", height: "200px" },
+                      attrs: {
+                        src:
+                          "/assets/img/icons/" + _vm.item.producto.categoria.img
+                      }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col" })
+                  _vm.item.bebida.id
+                    ? _c("div", { staticClass: "col-1" }, [
+                        _c("span", { staticStyle: { "font-size": "9rem" } }, [
+                          _vm._v(" + ")
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.item.bebida.id
+                    ? _c("div", { staticClass: "col" }, [
+                        _c("img", {
+                          staticStyle: { width: "100%", height: "200px" },
+                          attrs: { src: "/assets/img/icons/bebida.png" }
+                        })
+                      ])
+                    : _vm._e()
                 ])
               : _vm._e()
           ]),
@@ -1720,7 +1766,9 @@ var render = function() {
             [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-lg-12 text-center" }, [
-                  _c("h4", [_vm._v("Adicionales")])
+                  _c("h4", [_vm._v("Adicionales")]),
+                  _vm._v(" "),
+                  _c("span")
                 ])
               ])
             ]
@@ -15216,14 +15264,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************!*\
   !*** ./resources/assets/js/producto/components/ModalCheckout.vue ***!
   \*******************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ModalCheckout_vue_vue_type_template_id_1617fd72___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ModalCheckout.vue?vue&type=template&id=1617fd72& */ "./resources/assets/js/producto/components/ModalCheckout.vue?vue&type=template&id=1617fd72&");
 /* harmony import */ var _ModalCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModalCheckout.vue?vue&type=script&lang=js& */ "./resources/assets/js/producto/components/ModalCheckout.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ModalCheckout_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalCheckout.vue?vue&type=style&index=0&lang=css& */ "./resources/assets/js/producto/components/ModalCheckout.vue?vue&type=style&index=0&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ModalCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ModalCheckout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _ModalCheckout_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModalCheckout.vue?vue&type=style&index=0&lang=css& */ "./resources/assets/js/producto/components/ModalCheckout.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -15255,7 +15304,7 @@ component.options.__file = "resources/assets/js/producto/components/ModalCheckou
 /*!********************************************************************************************!*\
   !*** ./resources/assets/js/producto/components/ModalCheckout.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15445,7 +15494,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     initStore: function initStore(_ref) {
       var commit = _ref.commit,
           state = _ref.state;
-      var cart = JSON.parse(localStorage.getItem("cart"));
+      var cart = JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : [];
       commit("SET_CARS", cart);
     }
   }

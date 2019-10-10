@@ -19,15 +19,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="resumen-producto-name"> Hamburguesa</td>
-                                <td class="numero text-center"> 2 </td>
-                                <td class="numero text-center"> S/. 1232 </td>
-                            </tr>
-                            <tr>
-                                <td class="resumen-producto-name"> Hamburguesa</td>
-                                <td class="numero text-center"> 2 </td>
-                                <td class="numero text-center"> S/. 1232 </td>
+                            <tr v-for="cart in carts">
+                                <td class="resumen-producto-name"> {{ cart.producto.nombre }} </td>
+                                <td class="numero text-center" style="font-size: 1.2rem;font-weight: 600;"> {{ cart.producto.cantidad }} </td>
+                                <td class="numero text-center" style="font-size: 1.2rem;font-weight: 600;"> {{ cart.producto.precio * cart.producto.cantidad | currency }}</td>
                             </tr>
                         </tbody>
                     </table>         
@@ -38,19 +33,20 @@
                     <table class="total-list">
                         <tr>
                             <td> Sub-Total: </td>
-                            <td class="numero"> 21321 </td>
+                            <td class="numero"> {{ subtotal | currency}} </td>
                         </tr>
                         <tr>
                             <td> Envio: </td>
-                            <td class="numero"> 21321 </td>
+                            <td class="numero"> {{ envio | currency }} </td>
                         </tr>
                         <tr>
                             <td> IGV: </td>
-                            <td class="numero"> 21321 </td>
+                            <td class="numero"> {{ igv  | currency}} </td>
                         </tr>
                         <tr>
+                        
                             <td class="resumen-producto-name"> TOTAL: </td>
-                            <td class="numero" style="font-size:1.9rem;"> 21321 </td>
+                            <td class="numero" style="font-size:1.9rem;"> {{ total | currency }} </td>
                     </tr>
                 </table> 
                 </div>
@@ -59,19 +55,55 @@
         <div class="col-lg-2 p-0 text-right" style="align-self: flex-end;">
             <button class="btn btn-primary p-0" @click="finish()"> Finalizar compra </button>
         </div>
+        <finish-modal />
     </div>
 </template>
 <script>
+import FinishModal from './modal';
 export default {
     data(){
         return {
             
         }
     },
+    components:{FinishModal},
+    computed:{
+        carts:{
+            set(value){
+                this.$store.commit('SET_CART',value);
+            },
+            get(){
+                return this.$store.state.cart;
+            }
+        },
+        subtotal(){
+            let productos = 0 ;
+            let bebidas = 0;
+            let adicionales = 0;
+
+            this.carts.forEach(element => {
+                productos += element.producto.cantidad * element.producto.precio;
+                bebidas += (element.bebida.precio ) ? element.bebida.precio : bebidas ;
+                adicionales += (element.adicionales.precio ) ? element.adicionales.precio : adicionales ;
+            });
+
+            return productos + bebidas + adicionales;
+        },
+        envio(){
+            return 8;
+        },
+        igv(){
+            return 0;
+        },
+        total(){
+            let total = this.subtotal + this.igv + this.envio;
+            return total;
+        }
+    },
     methods: {
         finish() {
-            this.eventHub.$emit("finishModal");
-            window.location.href="/carta";
+            localStorage.removeItem("cart");            
+            this.eventHub.$emit("finishModal",true);
         },
     },
 }    
@@ -108,6 +140,10 @@ export default {
     padding:10px 30px;
     
 }
+.numero{
+    font-weight:600;
+}
+
 .encabezado-border h2{
     font-size:2rem !important;
 }

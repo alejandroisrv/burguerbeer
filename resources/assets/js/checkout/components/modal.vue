@@ -90,7 +90,7 @@ import Modal from '../../components/Modal';
 export default {
     data(){
         return {
-            modal:true,
+            modal:false,
             titulo:"¿Ya estas registrado?",
             step:1,
             validations:{
@@ -232,7 +232,7 @@ export default {
                window.location.href="/finish";
             });
         },
-        forgetPassword(){
+        recoveryPassword(){
 
         },
         loginScreen(){

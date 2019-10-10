@@ -17,7 +17,7 @@ const store = new Vuex.Store({
     },
     actions: {
         initStore({ commit, state }) {
-            let cart = JSON.parse(localStorage.getItem("cart"));
+            let cart = (JSON.parse(localStorage.getItem("cart"))) ? JSON.parse(localStorage.getItem("cart")) : [];
             commit("SET_CARS", cart);
         }
     }

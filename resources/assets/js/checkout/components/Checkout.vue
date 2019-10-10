@@ -13,8 +13,8 @@
                     <div class="row">
                         <div class="col mb-4 mt-2 text-center px-4">
                             <span class="resumen-producto-name" v-for="(cart,i) in carts" v-if="cart != null"> 
-                                   {{ cart.producto.nombre }} <span class="numero" style="font-size:1.5rem">x2</span> 
-                                <span style="color:gray;" v-if="(i+1) != carts.length"> + </span>
+                                   {{ cart.producto.nombre }} <span class="numero" style="font-size:1.5rem" v-if="cart.producto.cantidad">x{{ cart.producto.cantidad }}</span> 
+                                <span style="color:gray;" v-if="((i+1) != carts.length) && cart.bebida.nombre"> + </span>
                                     {{ cart.bebida.nombre }} 
                                 <span style="color:gray;" v-if="(i+1) != carts.length"> + </span>
                             </span>
@@ -50,11 +50,14 @@
             <button class="btn btn-primary" @click="logModal()"> Continuar </button>
         </div>
         <modal-account />
+        <div class="nothing-cart">
+            <nothing-cart />
+        </div>
     </div> 
 </template>
 <script>
 import ModalAccount from './modal';
-
+import NothingCart from './NothingCart';
 export default {
     props:['metodos'],
     data(){
@@ -66,9 +69,11 @@ export default {
         }
     },
     mounted(){
-        console.log(this.carts);
+        if(this.carts.length == 0){
+            this.eventHub.$emit('nothingCart',true);
+        }
     },
-    components:{ ModalAccount },
+    components:{ ModalAccount,NothingCart },
     methods:{
         pay(){
             
@@ -105,4 +110,9 @@ export default {
     font-size:2rem !important;
 }
 
+.nothing-cart .modal-burguer-backdrop .modal-burguer {
+    max-height: 45%!important;
+    height: inherit!important;
+    padding-bottom: 0px!important;
+}
 </style>

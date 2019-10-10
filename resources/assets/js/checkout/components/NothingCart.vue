@@ -2,18 +2,19 @@
   <div>
     <modal @close="modal = false " v-show="modal">
         <div slot="modal-titulo">
-            <div class="encabezado-border text-center" style="width:70%!important;">
-              <h3>Gracias por tu compra</h3>
-            </div>
+            <h3 class="text-center">Tu carrito esta vacío.</h3>
         </div> 
       <div slot="modal-body" >
         <div class="row justify-content-center">
             <div class="col">
-                <h4 class="text-center"> Tu pedido llegará en breve</h4>
+                <h4 class="text-center"> Intenta agregar algun producto. </h4>
             </div>
         </div>
       </div>
       <div slot="modal-footer">
+        <div class="text-center">
+          <button type="button" class="btn btn-primary" v-else-if="" @click="goHome()"> Aceptar</button>
+        </div>
       </div>
     </modal>
   </div>
@@ -39,17 +40,19 @@ export default {
         },
     },
     components:{ Modal },
+    watch: {
+        modal() {
+            if(!this.modal){
+                this.goHome();
+            }
+        },
+    },
     mounted(){
-        this.eventHub.$on('finishModal', modal => {
-            this.modal = modal;
-            this.goHome();
-        });
+        this.eventHub.$on('nothingCart', modal => this.modal = modal );
     },
     methods:{
         goHome(){
-            setTimeout(() => {
-                window.location.href="/carta";    
-            }, 4000);
+            window.location.href="/carta";
         }
 
     }
@@ -69,9 +72,4 @@ export default {
     .modal-burguer-footer {
         margin-top: -100px;
     }
-    .modal-burguer-backdrop .modal-burguer {
-        max-height: 32%!important;
-        height: inherit!important;
-        padding-bottom: 0px!important;
-}
 </style>

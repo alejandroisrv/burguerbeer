@@ -86,7 +86,7 @@ export default {
     }
 
     .square-adicionales{
-        width: 300px;
+        width: 10%;
         background: #d9d9d9;
         height: 200px;
         display: block;
@@ -94,6 +94,8 @@ export default {
         top: 16.7%;
         right: 3.1%;
         border: 4px solid black;
+        display:none;
+        visibility:hidden;
     }
 
 </style>

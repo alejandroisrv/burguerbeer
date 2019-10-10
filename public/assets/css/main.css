@@ -312,6 +312,7 @@ input.form-control:focus {
 .btn-primary {
   background: black;
   border-color: black !important;
+  color: white !important;
 }
 
 .btn-primary:hover {

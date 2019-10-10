@@ -99,8 +99,7 @@ export default {
     created(){
         console.log(this.producto);
         this.item.producto = this.producto;
-        this.cart = local
-        
+        this.item.producto.cantidad = 1;  
     },
     components:{modal},
     methods:{
