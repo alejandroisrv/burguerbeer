@@ -16,7 +16,7 @@
                 <h2 class="mt-4"> Estamos renovando nuestra web</h2>
                 <h4 class="my-4"> Abrimos de Lunes a Domingo <br> hasta las <span class="numero"> 3 </span> am</h4>
                 <h5 class="mt-4"> 
-                    Para pedidos al: 
+                    Haz tu pedido ahora al: 
                     <br>
                     <a href="tel:923985662" class="numero"> 923 985 662</a>
                     <a href="tel:912889571" class="numero"> 912 889 571</a>
