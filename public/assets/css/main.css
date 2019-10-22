@@ -170,6 +170,82 @@ hr {
   height: 100px;
 }
 
+.modal-burguer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: #2f496e73;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-burguer-backdrop .modal-burguer {
+  position: relative;
+  background-color: #d9d9d9;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 8%;
+  border: 4px solid black;
+}
+
+@media screen and (max-width: 700px) {
+  .modal-burguer-backdrop .modal-burguer {
+    margin-top: 10%;
+    width: 90% !important;
+    padding: 20px;
+  }
+}
+
+.modal-burguer .btn-cerrar {
+  position: absolute;
+  top: -10px;
+  right: -12px;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.modal-burguer .btn-cerrar:hover {
+  background: #f52b16;
+}
+
+.modal-burguer .btn-cerrar i {
+  line-height: 27px;
+}
+
+.modal-burguer-footer {
+  margin-top: -80px;
+}
+
+.modal-burguer .modal-burguer-titulo {
+  padding: 15px;
+  font-weight: 550;
+  color: black;
+}
+
+.modal-burguer .modal-burguer-body {
+  padding: 20px;
+  padding-bottom: 30px;
+}
+
+.square-adicionales {
+  width: 10%;
+  background: #d9d9d9;
+  height: 200px;
+  display: block;
+  position: absolute;
+  top: 16.7%;
+  right: 3.1%;
+  border: 4px solid black;
+  display: none;
+  visibility: hidden;
+}
+
 * {
   font-family: "Aliens";
 }
