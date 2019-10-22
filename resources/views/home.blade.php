@@ -18,7 +18,7 @@
                 <h5 class="mt-4"> 
                     Para pedidos al: 
                     <br>
-                    <a href="tel:923985665" class="numero"> 923 985 665</a>
+                    <a href="tel:923985662" class="numero"> 923 985 662</a>
                     <a href="tel:912889571" class="numero"> 912 889 571</a>
                 </h5>
             </div>
