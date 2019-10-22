@@ -11,16 +11,17 @@
     </div>
     <div class="modal-burguer-backdrop">
         <div class="modal-burguer text-center">
-            <img src="/assets/img/burguerbeer.png" class="img-fluid pt-3"  style="width:140px;height:140px;" />
+            <img src="/assets/img/burguerbeer.png" class="img-fluid pt-3"  style="width:145px;height:145px;" />
             <div class="text-center">
-                <h2 class="mt-4"> Estamos renovando nuestra web</h2>
-                
-                <h4 class="mt-4"> 
+                <h2 class="my-4"> Estamos renovando nuestra web</h2>
+                <h4 class="my-4"> 
                     Haz tu pedido ahora al: 
                     <br>
                     <a href="tel:923985662" class="numero"> 923 985 662</a>
+                    -
                     <a href="tel:912889571" class="numero"> 912 889 571</a>
                 </h5>
+                <br>
             </div>
         </div>
     </div>
