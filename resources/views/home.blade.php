@@ -14,8 +14,8 @@
             <img src="/assets/img/burguerbeer.png" class="img-fluid pt-3"  style="width:140px;height:140px;" />
             <div class="text-center">
                 <h2 class="mt-4"> Estamos renovando nuestra web</h2>
-                <h4 class="my-4"> Abrimos de Lunes a Domingo <br> hasta las <span class="numero"> 3 </span> am</h4>
-                <h5 class="mt-4"> 
+                
+                <h4 class="mt-4"> 
                     Haz tu pedido ahora al: 
                     <br>
                     <a href="tel:923985662" class="numero"> 923 985 662</a>
