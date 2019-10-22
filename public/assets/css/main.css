@@ -191,9 +191,23 @@ hr {
 
 @media screen and (max-width: 700px) {
   .modal-burguer-backdrop .modal-burguer {
-    margin-top: 10%;
     width: 90% !important;
-    padding: 20px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal-burguer-backdrop .modal-burguer {
+    width: 90% !important;
+    padding: 10px;
+  }
+
+  .modal-burguer-backdrop .modal-burguer h2 {
+    font-size: 1.8rem !important;
+  }
+
+  .modal-burguer-backdrop .modal-burguer h4 {
+    font-size: 1.4rem !important;
   }
 }
 
